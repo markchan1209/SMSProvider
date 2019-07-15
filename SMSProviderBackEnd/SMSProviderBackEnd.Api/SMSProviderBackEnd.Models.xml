@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SMSProviderBackEnd.Models</name>
+    </assembly>
+    <members>
+        <member name="P:SMSProviderBackEnd.Models.SMSSecurity.success">
+            <summary>
+            操作是否成功
+            </summary>
+        </member>
+        <member name="P:SMSProviderBackEnd.Models.SMSSecurity.msg">
+            <summary>
+            返回信息
+            </summary>
+        </member>
+    </members>
+</doc>

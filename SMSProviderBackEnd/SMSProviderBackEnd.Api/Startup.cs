@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -11,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
-namespace SMSProviderBackEnd
+namespace SMSProviderBackEnd.Api
 {
     public class Startup
     {
@@ -30,7 +31,13 @@ namespace SMSProviderBackEnd
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });              
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SMS Provider API", Version = "v0.1.0" , Description="API 說明文件"});
+                var basePath = Microsoft.DotNet.PlatformAbstractions.ApplicationEnvironment.ApplicationBasePath;
+                var xmlPath = Path.Combine(basePath, "SMSProviderBackEnd.Api.xml");
+                c.IncludeXmlComments(xmlPath, true);
+                var xmlModelPath = Path.Combine(basePath, "SMSProviderBackEnd.Models.xml");//这个就是Model层的xml文件名
+                c.IncludeXmlComments(xmlModelPath);
+
             });
         }
 
@@ -46,8 +53,8 @@ namespace SMSProviderBackEnd
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-                c.RoutePrefix = string.Empty;
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "{ApiName} V1");
+                c.RoutePrefix = "";
             }); 
             #endregion
 

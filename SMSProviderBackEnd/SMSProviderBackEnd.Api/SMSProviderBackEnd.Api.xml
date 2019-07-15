@@ -4,6 +4,48 @@
         <name>SMSProviderBackEnd.Api</name>
     </assembly>
     <members>
+        <member name="M:SMSProviderBackEnd.Api.AuthHelper.JwtHelper.IssueJwt(SMSProviderBackEnd.Api.AuthHelper.JwtHelper.TokenModelJwt)">
+            <summary>
+            
+            </summary>
+            <param name="tokenModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SMSProviderBackEnd.Api.AuthHelper.JwtHelper.SerializeJwt(System.String)">
+            <summary>
+            解析
+            </summary>
+            <param name="jwtStr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SMSProviderBackEnd.Api.AuthHelper.JwtHelper.TokenModelJwt">
+            <summary>
+            令牌
+            </summary>
+        </member>
+        <member name="P:SMSProviderBackEnd.Api.AuthHelper.JwtHelper.TokenModelJwt.Uid">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:SMSProviderBackEnd.Api.AuthHelper.JwtHelper.TokenModelJwt.Role">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:SMSProviderBackEnd.Api.AuthHelper.JwtHelper.TokenModelJwt.Work">
+            <summary>
+            职能
+            </summary>
+        </member>
+        <member name="M:SMSProviderBackEnd.Api.Controllers.LoginController.GetJwtStr(System.String,System.String)">
+            <summary>
+            获取JWT的方法
+            </summary>
+            <param name="id">id</param>
+            <param name="sub">角色</param>
+            <returns></returns>
+        </member>
         <member name="M:SMSProviderBackEnd.Api.Controllers.ValuesController.Get">
             <summary>
             取得基本資料

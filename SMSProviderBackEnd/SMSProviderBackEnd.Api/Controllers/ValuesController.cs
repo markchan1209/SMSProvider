@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SMSProviderBackEnd.Models;
 
@@ -17,6 +18,7 @@ namespace SMSProviderBackEnd.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [Authorize(Policy = "SystemOrAdmin")]
         public ActionResult<IEnumerable<string>> Get()
         {
             return new string[] { "value1", "value2" };
